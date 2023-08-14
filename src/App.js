@@ -94,7 +94,7 @@ class App extends Component{
   onButtonSubmit = ()=>{
     this.setState({imageUrl: this.state.input})
     // fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", clarifaiSetup(this.state.input))
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://mybackend-p5wf.onrender.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -106,7 +106,7 @@ class App extends Component{
 
       console.log(result)
       if(result.outputs[0].data.regions){
-        fetch('http://localhost:3000/image', {
+        fetch('https://mybackend-p5wf.onrender.com/image', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
